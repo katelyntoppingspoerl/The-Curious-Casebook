@@ -17,12 +17,17 @@ for record in records:
     print(record)
 
 print()
-guess = input("Which box holds the missing photograph? Enter 12, 27, or 34: ")
-guess = guess.strip()
+while True:
+    guess = input("Which box holds the photo? Enter 12, 27, 34, or Q to quit: ")
+    guess = guess.strip().lower()
 
-if guess == "27":
-    print("Case solved! The year and the lanterns match. The title was cataloged differently.")
-elif guess in ("12", "34"):
-    print("That box matches only part of the clue. Look for both the year and the lanterns.")
-else:
-    print("Enter one of the three box numbers from the catalog.")
+    if guess == "27":
+        print("Case solved! The year and the lanterns match. The title was cataloged differently.")
+        break
+    elif guess == "q":
+        print("Case closed for now.")
+        break
+    elif guess in ("12", "34"):
+        print("That box matches only part of the clue. Look for both the year and the lanterns.")
+    else:
+        print("Enter one of the three box numbers from the catalog, or Q to quit.")
